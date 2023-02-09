@@ -3,8 +3,6 @@ import javax.print.attribute.Size2DSyntax;
 public class Browser {
 
 	private static String[] history;
-
-	public int arrayIndex = 0;
 	public static int size;
 
 	public Browser() {};
