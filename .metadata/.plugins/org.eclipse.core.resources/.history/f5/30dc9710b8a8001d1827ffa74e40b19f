@@ -1,0 +1,17 @@
+
+public class Browser {
+	
+	private static String[] historyURL;
+	
+	Browser(){}//Empty Constructor
+		
+	public void setHistory(String[] newHistory) {
+		
+		historyURL = new String[newHistory.length];
+		
+		historyURL = newHistory.clone();
+	
+	}
+	
+
+}
