@@ -1,3 +1,5 @@
+import java.net.URLStreamHandler;
+import java.util.Iterator;
 
 public class Test {
 
@@ -12,22 +14,14 @@ public class Test {
 		Browser.setHistory(urlSet1);
 		
 		
+		String[] urlStrings = chrome.getHistory();
 		
-		for(String string: chrome.getHistory()) {
-			System.out.print(string + ",");
+		for(String string: urlStrings) {
+			System.out.print(string + " ");
 		}
 		
-		
-		System.out.println();
-		
-		
-		Browser mozilla = new Browser(urlSet2);
-		
-		
-		for(String string: mozilla.getHistory()) {
-			System.out.print(string + ",");
-		}
-	
+		//Browser mozilla = new Browser(urlSet2);
+
 	}
 
 }

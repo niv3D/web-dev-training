@@ -21,7 +21,8 @@ public class Test {
 		System.out.println();
 		
 		
-		Browser mozilla = new Browser(urlSet2);
+		Browser mozilla = new Browser();
+		Browser.setHistory(urlSet2);
 		
 		
 		for(String string: mozilla.getHistory()) {

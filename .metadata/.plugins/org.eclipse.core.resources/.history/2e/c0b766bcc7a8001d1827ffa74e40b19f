@@ -17,12 +17,7 @@ public class Browser {
 		else {
 			
 			String[] tempURL = new String[newHistory.length + Browser.historyURL.length];
-			
-			System.arraycopy(Browser.historyURL, 0, tempURL, 0, Browser.historyURL.length);
-			System.arraycopy(newHistory, 0, tempURL, Browser.historyURL.length, newHistory.length);
-			
-			Browser.historyURL = tempURL;
-			
+			tempURL = Browser.historyURL.clone();
 		}
 	
 	}

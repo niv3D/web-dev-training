@@ -16,19 +16,14 @@ public class Browser {
 		}
 		else {
 			
-			String[] tempURL = new String[newHistory.length + Browser.historyURL.length];
-			
-			System.arraycopy(Browser.historyURL, 0, tempURL, 0, Browser.historyURL.length);
-			System.arraycopy(newHistory, 0, tempURL, Browser.historyURL.length, newHistory.length);
-			
-			Browser.historyURL = tempURL;
-			
+			Browser.historyURL = new String[newHistory.length + Browser.historyURL.length];
+			Browser.historyURL = newHistory.clone();
 		}
 	
 	}
 	
 	//get method for static field - historyURL
-	public String[] getHistory(){
+	public static String[] getHistory(){
 		
 		return Browser.historyURL;
 		

@@ -11,9 +11,9 @@ public class Test {
 		Browser chrome = new Browser();
 		Browser.setHistory(urlSet1);
 		
+		String[] urlString1 = chrome.getHistory();
 		
-		
-		for(String string: chrome.getHistory()) {
+		for(String string: urlString1) {
 			System.out.print(string + ",");
 		}
 		
@@ -23,8 +23,9 @@ public class Test {
 		
 		Browser mozilla = new Browser(urlSet2);
 		
+		String[] urlString2 = mozilla.getHistory();
 		
-		for(String string: mozilla.getHistory()) {
+		for(String string: urlString2) {
 			System.out.print(string + ",");
 		}
 	
