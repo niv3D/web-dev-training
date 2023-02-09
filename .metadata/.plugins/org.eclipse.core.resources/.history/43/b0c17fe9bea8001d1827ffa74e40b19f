@@ -30,7 +30,7 @@ public class Browser {
 	}
 	
 	Browser(String[] newHistory){
-		Browser.setHistory(newHistory);
+		
 	}
 	
 }
