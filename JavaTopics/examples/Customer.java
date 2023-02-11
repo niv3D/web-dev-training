@@ -9,13 +9,14 @@ public class Customer {
 	private String customerName;
 	private String customerPassword;
 	
-	public Customer(String name, String password) {
+	Customer(String name, String password) {
 		
 		this.customerName = name;
 		this.customerPassword = password;
 		customerMap.put(name, this);
 		
 	}
+	
 	
 	public void removeCustomer() {
 		
@@ -26,6 +27,12 @@ public class Customer {
 	public String getCustomerName() {
 		return this.customerName;
 	}
+	
+	
+	public static boolean verifyCustomer(String name) {
+		return customerMap.containsKey(name);
+	}
+	
 	
 	public static Customer getCustomer(String name, String password) {
 		

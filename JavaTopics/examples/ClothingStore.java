@@ -4,35 +4,80 @@ import java.util.Scanner;
 
 public class ClothingStore {
 	
-	private Customer currentCustomer;
 	
-	public void userLogin() {
-		
-		Scanner input = new Scanner(System.in);
-
-		System.out.println("Enter user name : ");
-
-		String username = input.next("[a-z][a-z]*");
-
-		System.out.println("Enter password : ");
-		
-		String password = input.next("[a-z][a-z]*");
+	private static Customer currentCustomer;
+	
+	
+	public static void createUser(String username, String password) {
 		
 		
-		this.currentCustomer = Customer.getCustomer(username, password);
-		
-		if (this.currentCustomer == null) {
+		if(Customer.verifyCustomer(username)) {
 			
-			System.out.println("incorrect username or password");
+			System.out.println("user already exists !");
+			
+		}else {
+			
+			currentCustomer = new Customer(username, password);
 			
 		}
 		
+	}
+	
+	public static void userLogin(String username, String password) {
 		
+		currentCustomer = Customer.getCustomer(username, password);
+		
+		if (currentCustomer == null) {
+			
+			System.out.println("incorrect username or password !");
+			
+		}
+		
+	}
+	
+	public static void userLogout() {
+		currentCustomer  = null;
+	}
+	
+	public static void displayCurrentCustomer() {
+		
+		if (currentCustomer != null){
+			
+			System.out.println("current user : "+ currentCustomer.getCustomerName());
+			
+		}else {
+			
+			System.out.println("current user : not logged in !");
+		}
 	}
 
 	public static void main(String[] args) {
 		
+		createUser("nived","password");
 		
+		displayCurrentCustomer();
+		
+		userLogout();
+		
+		createUser("eldho","helloWorld");
+		
+		displayCurrentCustomer();
+		
+		userLogin("nived","incorrect");
+		
+		displayCurrentCustomer();
+		
+		userLogin("nived","password");
+		
+		displayCurrentCustomer();
+		
+		userLogout();
+		
+		displayCurrentCustomer();
+		
+		userLogin("eldho","helloWorld");
+		
+		displayCurrentCustomer();
 		
 	}
 

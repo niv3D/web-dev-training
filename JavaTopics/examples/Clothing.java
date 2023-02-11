@@ -2,8 +2,6 @@ package examples;
 
 import java.util.HashMap;
 
-import javax.management.loading.PrivateClassLoader;
-
 public class Clothing {
 
 	private static HashMap<String, Clothing> clothingMap = new HashMap<>();
