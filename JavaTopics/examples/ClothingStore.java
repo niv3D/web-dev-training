@@ -4,33 +4,30 @@ import java.util.Scanner;
 
 public class ClothingStore {
 	
+	private Customer currentCustomer;
 	
-	
-	void verifyUser(String username, String password) {
-		
-		
-		
-		
-		
-		
-	}
-
 	public void userLogin() {
 		
 		Scanner input = new Scanner(System.in);
 
 		System.out.println("Enter user name : ");
 
-		String username = input.next("[a-z]*");
+		String username = input.next("[a-z][a-z]*");
 
 		System.out.println("Enter password : ");
 		
-		String passwordString = input.next();
+		String password = input.next("[a-z][a-z]*");
 		
 		
+		this.currentCustomer = Customer.getCustomer(username, password);
+		
+		if (this.currentCustomer == null) {
+			
+			System.out.println("incorrect username or password");
+			
+		}
 		
 		
-		System.out.println(username);
 	}
 
 	public static void main(String[] args) {

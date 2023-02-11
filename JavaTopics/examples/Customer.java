@@ -23,4 +23,20 @@ public class Customer {
 		
 	}
 	
+	public String getCustomerName() {
+		return this.customerName;
+	}
+	
+	public static Customer getCustomer(String name, String password) {
+		
+		Customer customer = customerMap.get(name);
+		
+		if (customer != null && customer.customerPassword.equals(password)) {
+			return customer;
+		}
+		else {
+			return null;
+		}
+		
+	}
 }
