@@ -1,4 +1,4 @@
-package examples;
+package examples.account;
 
 import java.util.HashMap;
 
