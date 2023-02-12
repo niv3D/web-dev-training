@@ -1,7 +1,5 @@
 package examples;
 
-import java.util.Scanner;
-
 public class ClothingStore {
 	
 	
@@ -59,6 +57,10 @@ public class ClothingStore {
 		
 		userLogout();
 		
+		createUser("nived","password");
+		
+		displayCurrentCustomer();
+		
 		createUser("eldho","helloWorld");
 		
 		displayCurrentCustomer();
@@ -71,11 +73,13 @@ public class ClothingStore {
 		
 		displayCurrentCustomer();
 		
-		userLogout();
+		currentCustomer.removeCustomer();
+		
+		userLogin("eldho","helloWorld");
 		
 		displayCurrentCustomer();
 		
-		userLogin("eldho","helloWorld");
+		userLogin("nived","password");
 		
 		displayCurrentCustomer();
 		
