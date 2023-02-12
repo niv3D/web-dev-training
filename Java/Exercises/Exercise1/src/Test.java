@@ -1,8 +1,7 @@
-package Exercise1;
+
 public class Test {
 
 	public static void main(String[] args) {
-		
 		
 		String[] urlSet1 = {"www.google.com","www.youtube.com","one.zoho.com"};
 		String[] urlSet2 = {"www.github.com","dev.java","www.learncpp.com"};
@@ -27,7 +26,6 @@ public class Test {
 		for(String string: mozilla.getHistory()) {
 			System.out.print(string + ",");
 		}
-	
 	}
 
 }

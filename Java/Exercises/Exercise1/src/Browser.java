@@ -1,7 +1,5 @@
-package Exercise1;
 
 public class Browser {
-	
 	private static String[] historyURL;
 	
 	Browser(){}//Empty Constructor
