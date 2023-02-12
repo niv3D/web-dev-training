@@ -1,5 +1,7 @@
 package examples.account;
 
+import java.util.Scanner;
+
 public class ClothingStore {
 	
 	
@@ -57,10 +59,6 @@ public class ClothingStore {
 		
 		userLogout();
 		
-		createUser("nived","password");
-		
-		displayCurrentCustomer();
-		
 		createUser("eldho","helloWorld");
 		
 		displayCurrentCustomer();
@@ -73,13 +71,11 @@ public class ClothingStore {
 		
 		displayCurrentCustomer();
 		
-		currentCustomer.removeCustomer();
-		
-		userLogin("eldho","helloWorld");
+		userLogout();
 		
 		displayCurrentCustomer();
 		
-		userLogin("nived","password");
+		userLogin("eldho","helloWorld");
 		
 		displayCurrentCustomer();
 		
