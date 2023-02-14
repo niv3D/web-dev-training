@@ -16,6 +16,12 @@ public class AdventureBike extends MotorBike{
 		this.gear = 0;
 	}
 	
+	public static void testClassMethod() {
+		System.out.println("Adventure Bike");
+	}
 	
+	public void testInstanceMethod() {
+		System.out.println("Adventure Bike");
+	}
 
 }

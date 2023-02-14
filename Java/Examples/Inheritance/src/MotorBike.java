@@ -22,4 +22,12 @@ public class MotorBike {
 		speed -= deceleration;
 	}
 	
+	public static void testClassMethod() {
+		System.out.println("MotorBike");
+	}
+	
+	
+	public void testInstanceMethod() {
+		System.out.println("MotorBike");
+	}
 }
