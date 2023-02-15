@@ -1,5 +1,6 @@
 
 public class Browser {
+	
 	private static String[] historyURL;
 	
 	Browser(){}//Empty Constructor

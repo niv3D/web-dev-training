@@ -1,9 +1,8 @@
 
 public class MotorBike {
 	
-	protected int gear;
-	protected int speed;
-	
+	public int gear;
+	public int speed;
 	
 	public MotorBike(int initGear, int initSpeed) {
 		gear = initGear;
@@ -25,7 +24,6 @@ public class MotorBike {
 	public static void testClassMethod() {
 		System.out.println("MotorBike");
 	}
-	
 	
 	public void testInstanceMethod() {
 		System.out.println("MotorBike");
