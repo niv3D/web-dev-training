@@ -1,5 +1,6 @@
 
 abstract class GraphicObject {
+	
 	int x,y;
 	
 	
@@ -9,8 +10,15 @@ abstract class GraphicObject {
 		//.........
 		//.........
 	}
+	void moveTo(int newx , int newy, int newc , int newv) {
+		
+		
+		
+	}
 	
 	abstract void draw();
 	abstract void resize();
 
 }
+
+

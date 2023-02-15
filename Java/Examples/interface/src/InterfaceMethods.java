@@ -17,8 +17,11 @@ interface Mythical {
 }
 
 class InterfaceMethods extends Horse implements Flyer, Mythical {
+	
     public static void main(String... args) {
+ 
         InterfaceMethods myApp = new InterfaceMethods();
         System.out.println(myApp.identifyMyself());
+        
     }
 }
