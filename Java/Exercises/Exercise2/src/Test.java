@@ -1,4 +1,5 @@
 
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -25,8 +26,10 @@ public class Test {
 		
 		System.out.println("Chrome tabs open : " + chromeTabs);
 		
+		AccessKeys camera = AccessKeys.CAMERA;
+		AccessKeys location = AccessKeys.LOCATION;
 		
-		GoogleChrome.setPermissions("camera","microphone");
+		GoogleChrome.setPermissions(camera,location);
 		
 	}
 

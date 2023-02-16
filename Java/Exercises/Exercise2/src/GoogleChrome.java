@@ -31,36 +31,36 @@ public class GoogleChrome extends Browser {
 		System.out.println("I am Google Chrome" + VERSION_NUMBER);
 	}
 
-	private static void setAccess(String access) {
+	private static void setAccess(AccessKeys key) {
 
-		if ("camera".equals(access)) {
+		if (key.equals(AccessKeys.CAMERA)) {
 			isCameraAccessible = true;
 		}
-		if (access.equals("microphone")) {
+		if (key.equals(AccessKeys.MICROPHONE)) {
 			isMicrophoneAccessible = true;
 		}
-		if (access.equals("location")) {
+		if (key.equals(AccessKeys.LOCATION)) {
 			isLocationAccessible = true;
 		}
 
 	}
 
-	public static void setPermissions(String access1) {
-		setAccess(access1);
+	public static void setPermissions(AccessKeys key1) {
+		setAccess(key1);
 	}
 
-	public static void setPermissions(String access1, String access2) {
+	public static void setPermissions(AccessKeys key1, AccessKeys key2) {
 
-		setAccess(access1);
-		setAccess(access2);
+		setAccess(key1);
+		setAccess(key2);
 
 	}
 
-	public static void setPermissions(String access1, String access2, String access3) {
+	public static void setPermissions(AccessKeys key1, AccessKeys key2, AccessKeys key3) {
 
-		setAccess(access1);
-		setAccess(access2);
-		setAccess(access3);
+		setAccess(key1);
+		setAccess(key2);
+		setAccess(key3);
 
 	}
 }
