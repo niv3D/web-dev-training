@@ -1,5 +1,5 @@
 
-public class Firefox extends Browser{
+public class Firefox extends Browser implements MultipleAccountContainers{
 	
 	Firefox(String[] historyURL) {
 		
