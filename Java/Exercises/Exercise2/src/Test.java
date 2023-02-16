@@ -1,4 +1,3 @@
-import java.nio.channels.InterruptedByTimeoutException;
 
 public class Test {
 
@@ -18,15 +17,16 @@ public class Test {
 		
 		int chromeTabs = 0;
 		
-		
 		for(Browser tab: allBrowsers ) {
 			
-			Class a = tab.getClass();
-			if(a.getName().equals("GoogleChrome")) chromeTabs++;
+			if(tab instanceof GoogleChrome) chromeTabs++;
 			
 		}
 		
 		System.out.println("Chrome tabs open : " + chromeTabs);
+		
+		
+		GoogleChrome.setPermissions("camera","microphone");
 		
 	}
 
