@@ -22,11 +22,11 @@ public class Test {
 		for(Browser tab: allBrowsers ) {
 			
 			Class a = tab.getClass();
-			
-			//System.out.println(a.getName());
-			
 			if(a.getName().equals("GoogleChrome")) chromeTabs++;
+			
 		}
+		
+		System.out.println("Chrome tabs open : " + chromeTabs);
 		
 	}
 
