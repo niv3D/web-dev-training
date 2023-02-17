@@ -17,7 +17,7 @@ public class GoogleChrome extends Browser {
 		super();
 	}
 
-	public void showAccess() {
+	public static void showAccess() {
 
 		System.out.println("Access Allowed for : ");
 		System.out.println("Location : " + isLocationAccessible);

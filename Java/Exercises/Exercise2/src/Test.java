@@ -1,4 +1,4 @@
-
+import java.util.Iterator;
 
 public class Test {
 
@@ -31,6 +31,33 @@ public class Test {
 		
 		GoogleChrome.setPermissions(camera,location);
 		
+		GoogleChrome.showAccess();
+		
+		Firefox browserFirefox = (Firefox)tabTwo;
+		
+		browserFirefox.addContainer("facebookContainer");
+		browserFirefox.addContainer("Mails");
+		browserFirefox.addContainer("PrivateBrowsing");
+		
+		String[] containers = browserFirefox.viewAllContainers();
+		
+		for(String it: containers) {
+			
+			System.out.print(it + "; ");
+		}
+		
+		
+		browserFirefox.leaveContainer("PrivateBrowsing");
+		
+		
+		System.out.println();
+		
+		containers = browserFirefox.viewAllContainers();
+		
+		for(String it: containers) {
+			
+			System.out.print(it + "; ");
+		}
 	}
 
 }

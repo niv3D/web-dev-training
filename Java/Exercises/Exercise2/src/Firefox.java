@@ -46,4 +46,11 @@ public class Firefox extends Browser implements MultipleAccountContainers{
 		System.out.println("Container : "+ name + " do not exist");
 		
 	}
+
+	@Override
+	public String[] viewAllContainers() {
+		
+		return containerSet.toArray(new String[0]);
+		
+	}
 }
