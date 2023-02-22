@@ -2,14 +2,29 @@
 public class Browser {
 	
 	private static String[] historyURL;
-
+	private static int numberOftabsOpen;
+	private static Integer numberOftabsOpenObj = 0;
+	
 	Browser() {
+		Browser.numberOftabsOpen++;
+		Browser.numberOftabsOpenObj++;
 	}// Empty Constructor
 	
 	
 	Browser(String[] newHistory) {
 		Browser.setHistory(newHistory);
+		Browser.numberOftabsOpen++;
+		Browser.numberOftabsOpenObj++;
 	}
+	
+	public static int getNumberOftabs() {
+		return Browser.numberOftabsOpen;
+	}
+	
+	public static Integer getNumberOftabsObj() {
+		return Browser.numberOftabsOpenObj;
+	}
+	
 	
 	
 	// set method for static field - historyURL

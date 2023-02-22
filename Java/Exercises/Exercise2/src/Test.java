@@ -56,6 +56,13 @@ public class Test {
 
 			System.out.print(it + "; ");
 		}
+		
+		
+		Integer numberOftabsInteger = Browser.getNumberOftabs();
+		System.out.println("number of tabs open :" +numberOftabsInteger);
+		
+		int numberOftabs = Browser.getNumberOftabsObj();
+		System.out.println("number of tabs open :" + numberOftabs);
 	}
 
 }
