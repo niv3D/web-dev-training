@@ -1,9 +1,9 @@
 
 public interface MultipleAccountContainers {
 
-	public void addContainer(String name);
+	public boolean addContainer(String name);
 
-	public void leaveContainer(String name);
+	public boolean leaveContainer(String name);
 
 	public String[] viewAllContainers();
 

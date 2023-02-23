@@ -17,11 +17,11 @@ public class Browser {
 		Browser.numberOftabsOpenObj++;
 	}
 	
-	public static int getNumberOftabs() {
+	public static int getNumberOfTabs() {
 		return Browser.numberOftabsOpen;
 	}
 	
-	public static Integer getNumberOftabsObj() {
+	public static Integer getNumberOfTabsObj() {
 		return Browser.numberOftabsOpenObj;
 	}
 	

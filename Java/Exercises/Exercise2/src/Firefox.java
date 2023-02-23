@@ -17,33 +17,22 @@ public class Firefox extends Browser implements MultipleAccountContainers {
 
 	@Override
 	public void whoAmI() {
+		
 		System.out.println("I am Firefox");
 	}
 
 	@Override
-	public void addContainer(String name) {
+	// return boolean
+	public boolean addContainer(String name) {
 
-		if (!containerSet.contains(name)) {
-
-			containerSet.add(name);
-			return;
-		}
-
-		System.out.println("Container already exist !");
+		return containerSet.add(name);
 
 	}
 
 	@Override
-	public void leaveContainer(String name) {
-
-		if (containerSet.contains(name)) {
-
-			containerSet.remove(name);
-			return;
-		}
-
-		System.out.println("Container : " + name + " do not exist");
-
+	public boolean leaveContainer(String name) {
+		
+		return containerSet.remove(name);
 	}
 
 	@Override

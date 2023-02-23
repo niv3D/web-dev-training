@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Test {
 
@@ -41,10 +42,7 @@ public class Test {
 
 		String[] containers = browserFirefox.viewAllContainers();
 
-		for (String it : containers) {
-
-			System.out.print(it + "; ");
-		}
+		System.out.print(Arrays.toString(containers));
 
 		browserFirefox.leaveContainer("PrivateBrowsing");
 
@@ -52,17 +50,26 @@ public class Test {
 
 		containers = browserFirefox.viewAllContainers();
 
-		for (String it : containers) {
+		System.out.println(Arrays.toString(containers));
 
-			System.out.print(it + "; ");
-		}
-		
-		
-		Integer numberOftabsInteger = Browser.getNumberOftabs();
-		System.out.println("number of tabs open :" +numberOftabsInteger);
-		
-		int numberOftabs = Browser.getNumberOftabsObj();
+		Integer numberOftabsInteger = Browser.getNumberOfTabs();
+		System.out.println("number of tabs open :" + numberOftabsInteger);
+
+		int numberOftabs = Browser.getNumberOfTabsObj();
 		System.out.println("number of tabs open :" + numberOftabs);
+		
+		
+		GoogleChrome newTabChrome = new GoogleChrome();
+		
+		newTabChrome.visitUrl("www.twitter.com");
+		newTabChrome.viewHistory();
+		
+		newTabChrome.visitUrl("www.fb.com");
+		newTabChrome.viewHistory();
+		
+		newTabChrome.visitUrl("www.twitter.com");
+		newTabChrome.viewHistory();
+		
 	}
 
 }

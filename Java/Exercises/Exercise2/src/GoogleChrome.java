@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class GoogleChrome extends Browser {
 
+	private static List<String> historyStrings = new ArrayList<>();
 	private static boolean isLocationAccessible;
 	private static boolean isCameraAccessible;
 	private static boolean isMicrophoneAccessible;
@@ -61,6 +64,35 @@ public class GoogleChrome extends Browser {
 		setAccess(key1);
 		setAccess(key2);
 		setAccess(key3);
+
+	}
+
+	public void visitUrl(String url) {
+
+		for (int i = historyStrings.size() - 1; i > -1; i--) {
+
+			String[] contents = historyStrings.get(i).split(" ## ", 2);
+
+			if (url.equals(contents[0])) {
+				
+				int count = Integer.valueOf(contents[1]) + 1;
+				
+				String newHistory = contents[0] + " ## " + count;
+
+				historyStrings.add(newHistory);
+
+				return;
+			}
+
+		}
+
+		historyStrings.add(url + " ## " + 1);
+
+	}
+
+	public void viewHistory() {
+
+		System.out.println(historyStrings.toString());
 
 	}
 }
