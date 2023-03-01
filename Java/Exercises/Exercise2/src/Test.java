@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class Test {
 
 	public static void main(String[] args) {
+		
 		Browser tabOne = new GoogleChrome();
 		Browser tabTwo = new Firefox();
 		Browser tabThree = new Firefox();
@@ -27,10 +28,8 @@ public class Test {
 
 		System.out.println("Chrome tabs open : " + chromeTabs);
 
-		AccessKeys camera = AccessKeys.CAMERA;
-		AccessKeys location = AccessKeys.LOCATION;
 
-		GoogleChrome.setPermissions(camera, location);
+		GoogleChrome.setPermissions(AccessKeys.CAMERA, AccessKeys.LOCATION);
 
 		GoogleChrome.showAccess();
 
@@ -59,16 +58,23 @@ public class Test {
 		System.out.println("number of tabs open :" + numberOftabs);
 		
 		
-		GoogleChrome newTabChrome = new GoogleChrome();
+//		GoogleChrome newTabChrome = new GoogleChrome();
+//		
+//		newTabChrome.visitUrl("www.twitter.com");
+//		newTabChrome.viewHistory();
+//		
+//		newTabChrome.visitUrl("www.fb.com");
+//		newTabChrome.viewHistory();
+//		
+//		newTabChrome.visitUrl("www.twitter.com");
+//		newTabChrome.viewHistory();
 		
-		newTabChrome.visitUrl("www.twitter.com");
-		newTabChrome.viewHistory();
+		Browser.BookMarks newBookMarks = tabOne.new BookMarks();
 		
-		newTabChrome.visitUrl("www.fb.com");
-		newTabChrome.viewHistory();
+		newBookMarks.addBookMark("facebook", "www.facebook.com");
+		newBookMarks.addBookMark("twitter", "www.twitter.com");
 		
-		newTabChrome.visitUrl("www.twitter.com");
-		newTabChrome.viewHistory();
+		newBookMarks.viewBookMarks();
 		
 	}
 
