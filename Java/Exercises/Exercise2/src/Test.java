@@ -70,13 +70,15 @@ public class Test {
 		newTabChrome.viewHistory();
 		
 		
-//		Browser.BookMarks newBookMarks = tabOne.new BookMarks();
-//		
-//		newBookMarks.addBookMark("facebook", "www.facebook.com");
-//		newBookMarks.addBookMark("twitter", "www.twitter.com");
-//		
-//		newBookMarks.viewBookMarks();
+		Browser.BookMarks newBookMarks = tabOne.new BookMarks();
 		
+		newBookMarks.addBookMark("facebook", "www.facebook.com");
+		newBookMarks.addBookMark("twitter", "www.twitter.com");
+		
+		newBookMarks.viewBookMarks();
+		
+		newBookMarks.removeBookMark("twitter");
+		newBookMarks.viewBookMarks();
 		
 	}
 

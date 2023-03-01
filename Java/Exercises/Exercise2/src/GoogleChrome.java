@@ -82,8 +82,7 @@ public class GoogleChrome extends Browser {
 				
 				String newUrlString = urlContent[0] + " ## " + count;
 				
-				historyStrings.remove(i);
-				historyStrings.add(i, newUrlString);
+				historyStrings.set(i, newUrlString);
 				return;
 				
 			}
