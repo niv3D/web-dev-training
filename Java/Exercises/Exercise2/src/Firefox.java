@@ -17,7 +17,7 @@ public class Firefox extends Browser implements MultipleAccountContainers {
 
 	@Override
 	public void whoAmI() {
-		
+
 		System.out.println("I am Firefox");
 	}
 
@@ -31,7 +31,7 @@ public class Firefox extends Browser implements MultipleAccountContainers {
 
 	@Override
 	public boolean leaveContainer(String name) {
-		
+
 		return containerSet.remove(name);
 	}
 

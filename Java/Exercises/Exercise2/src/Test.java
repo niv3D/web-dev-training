@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Test {
 
 	public static void main(String[] args) {
-		
+
 		Browser tabOne = new GoogleChrome();
 		Browser tabTwo = new Firefox();
 		Browser tabThree = new Firefox();
@@ -27,7 +27,6 @@ public class Test {
 		}
 
 		System.out.println("Chrome tabs open : " + chromeTabs);
-
 
 		GoogleChrome.setPermissions(AccessKeys.CAMERA, AccessKeys.LOCATION);
 
@@ -56,30 +55,28 @@ public class Test {
 
 		int numberOftabs = Browser.getNumberOfTabsObj();
 		System.out.println("number of tabs open :" + numberOftabs);
-		
-		
+
 		GoogleChrome newTabChrome = new GoogleChrome();
-		
+
 		newTabChrome.visitUrl("www.twitter.com");
 		newTabChrome.viewHistory();
-		
+
 		newTabChrome.visitUrl("www.facebook.com");
 		newTabChrome.viewHistory();
-		
+
 		newTabChrome.visitUrl("www.twitter.com");
 		newTabChrome.viewHistory();
-		
-		
+
 		Browser.BookMarks newBookMarks = tabOne.new BookMarks();
-		
+
 		newBookMarks.addBookMark("facebook", "www.facebook.com");
 		newBookMarks.addBookMark("twitter", "www.twitter.com");
-		
+
 		newBookMarks.viewBookMarks();
-		
+
 		newBookMarks.removeBookMark("twitter");
 		newBookMarks.viewBookMarks();
-		
+
 	}
 
 }

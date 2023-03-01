@@ -17,21 +17,17 @@ public class Browser {
 		public void removeBookMark(String name) {
 			bookMarksMap.remove(name);
 		}
-		
+
 		public void viewBookMarks() {
-			
+
 			System.out.println(bookMarksMap.toString());
 		}
 
 	}
-	
-	static class History{
-		
-		
-		
-		
+
+	static class History {
+
 	}
-	
 
 	Browser() {
 		Browser.numberOftabsOpen++;

@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 public class GoogleChrome extends Browser {
 
 	private static List<String> historyStrings = new ArrayList<>();
-	
+
 	private static boolean isLocationAccessible;
 	private static boolean isCameraAccessible;
 	private static boolean isMicrophoneAccessible;
@@ -71,20 +71,20 @@ public class GoogleChrome extends Browser {
 
 	public void visitUrl(String url) {
 
-		for(int i=0;i<historyStrings.size();i++) {
-			
-			String[] urlContent = historyStrings.get(i).split(" ## ",2);
-			
+		for (int i = 0; i < historyStrings.size(); i++) {
+
+			String[] urlContent = historyStrings.get(i).split(" ## ", 2);
+
 			if (url.equals(urlContent[0])) {
-				
+
 				int count = Integer.parseInt(urlContent[1]);
 				count++;
-				
+
 				String newUrlString = urlContent[0] + " ## " + count;
-				
+
 				historyStrings.set(i, newUrlString);
 				return;
-				
+
 			}
 
 		}
