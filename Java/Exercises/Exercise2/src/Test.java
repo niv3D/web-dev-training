@@ -58,23 +58,25 @@ public class Test {
 		System.out.println("number of tabs open :" + numberOftabs);
 		
 		
-//		GoogleChrome newTabChrome = new GoogleChrome();
-//		
-//		newTabChrome.visitUrl("www.twitter.com");
-//		newTabChrome.viewHistory();
-//		
-//		newTabChrome.visitUrl("www.fb.com");
-//		newTabChrome.viewHistory();
-//		
-//		newTabChrome.visitUrl("www.twitter.com");
-//		newTabChrome.viewHistory();
+		GoogleChrome newTabChrome = new GoogleChrome();
 		
-		Browser.BookMarks newBookMarks = tabOne.new BookMarks();
+		newTabChrome.visitUrl("www.twitter.com");
+		newTabChrome.viewHistory();
 		
-		newBookMarks.addBookMark("facebook", "www.facebook.com");
-		newBookMarks.addBookMark("twitter", "www.twitter.com");
+		newTabChrome.visitUrl("www.facebook.com");
+		newTabChrome.viewHistory();
 		
-		newBookMarks.viewBookMarks();
+		newTabChrome.visitUrl("www.twitter.com");
+		newTabChrome.viewHistory();
+		
+		
+//		Browser.BookMarks newBookMarks = tabOne.new BookMarks();
+//		
+//		newBookMarks.addBookMark("facebook", "www.facebook.com");
+//		newBookMarks.addBookMark("twitter", "www.twitter.com");
+//		
+//		newBookMarks.viewBookMarks();
+		
 		
 	}
 

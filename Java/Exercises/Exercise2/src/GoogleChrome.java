@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 public class GoogleChrome extends Browser {
 
@@ -70,16 +71,20 @@ public class GoogleChrome extends Browser {
 
 	public void visitUrl(String url) {
 
-		for(String content: historyStrings) {
+		for(int i=0;i<historyStrings.size();i++) {
 			
-			String urlContent[] = content.split(" ## ",2);
+			String[] urlContent = historyStrings.get(i).split(" ## ",2);
 			
 			if (url.equals(urlContent[0])) {
 				
-				String newUrlString = urlContent[0] + " ## " + Integer.valueOf(urlContent[1]);
+				int count = Integer.parseInt(urlContent[1]);
+				count++;
 				
-				historyStrings.add(historyStrings.indexOf(url), newUrlString);
+				String newUrlString = urlContent[0] + " ## " + count;
 				
+				historyStrings.remove(i);
+				historyStrings.add(i, newUrlString);
+				return;
 				
 			}
 

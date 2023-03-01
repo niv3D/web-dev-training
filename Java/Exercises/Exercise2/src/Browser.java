@@ -1,6 +1,4 @@
-
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class Browser {
 
@@ -27,6 +25,12 @@ public class Browser {
 
 	}
 	
+	static class History{
+		
+		
+		
+		
+	}
 	
 
 	Browser() {
