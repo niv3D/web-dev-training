@@ -77,6 +77,16 @@ public class Test {
 		newBookMarks.removeBookMark("twitter");
 		newBookMarks.viewBookMarks();
 
+		Browser tab6 = new Browser() {
+
+			@Override
+			public void whoAmI() {
+				System.out.println("Im an Anonymous inner class !");
+			}
+		};
+		
+		tab6.whoAmI();
+
 	}
 
 }

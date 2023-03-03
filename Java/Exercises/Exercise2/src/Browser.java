@@ -6,7 +6,7 @@ public class Browser {
 	private static int numberOftabsOpen;
 	private static Integer numberOftabsOpenObj = 0;
 
-	class BookMarks {
+	public class BookMarks {
 
 		private HashMap<String, String> bookMarksMap = new HashMap<>();
 
@@ -24,9 +24,9 @@ public class Browser {
 		}
 
 	}
-
-	static class History {
-
+	
+	public static class History {
+		
 	}
 
 	Browser() {
