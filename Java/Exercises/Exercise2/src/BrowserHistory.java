@@ -5,8 +5,9 @@ public class BrowserHistory {
 	private ArrayList<String> historyUrls = new ArrayList<>();
 	private int currentIndex;
 
-	public BrowserHistory(String homepageUrl) {
-
+	public BrowserHistory(String homepageUrl) throws InvalidURLException{
+		
+		verifyUrl(homepageUrl);
 		historyUrls.add(homepageUrl);
 		currentIndex = 0;
 
@@ -55,7 +56,7 @@ public class BrowserHistory {
 
 	}
 
-	public String get(int position) throws InvalidPositionException{
+	public String get(int position) throws InvalidPositionException,IndexOutOfBoundsException{
 		
 		if(position<0) {
 			throw new InvalidPositionException("Provide only positive values");

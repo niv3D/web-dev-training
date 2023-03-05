@@ -1,4 +1,4 @@
-import java.util.Arrays;
+//import java.util.Arrays;
 
 public class Test {
 
@@ -86,7 +86,13 @@ public class Test {
 //		};
 //		
 //		tab6.whoAmI();
-
+		
+		
+		BrowserUI userInterface = new BrowserUI();
+		
+		userInterface.run();
+		
+		
+		
 	}
-
 }
