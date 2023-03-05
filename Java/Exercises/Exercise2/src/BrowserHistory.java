@@ -21,11 +21,11 @@ public class BrowserHistory {
 		}
 	}
 
-	public void visit(String url) throws InvalidURLException {
+	public String visit(String url) throws InvalidURLException {
 		verifyUrl(url);
 		historyUrls.add(url);
 		currentIndex++;
-
+		return url;
 	}
 
 	public String back(int steps) throws NoHistoryFoundException {

@@ -48,7 +48,7 @@ public class BrowserUI {
 						currentPage = arg;
 						break;
 					} else {
-						session.visit(arg);
+						currentPage = session.visit(arg);
 					}
 				} catch (InvalidURLException e) {
 					System.out.println(e.getLocalizedMessage());
@@ -67,7 +67,7 @@ public class BrowserUI {
 					}
 
 					String arg = inputBuffer[1];
-					session.back(Integer.parseInt(arg));
+					currentPage = session.back(Integer.parseInt(arg));
 
 				} catch (NumberFormatException e) {
 					System.out.println("Enter valid number as argument");
@@ -89,7 +89,7 @@ public class BrowserUI {
 					}
 
 					String arg = inputBuffer[1];
-					session.forward(Integer.parseInt(arg));
+					currentPage = session.forward(Integer.parseInt(arg));
 
 				} catch (NumberFormatException e) {
 					System.out.println("Enter valid number as argument");
@@ -112,7 +112,7 @@ public class BrowserUI {
 					}
 					
 					String arg = inputBuffer[1];
-					session.get(Integer.parseInt(arg));
+					currentPage = session.get(Integer.parseInt(arg));
 
 				} catch (NumberFormatException e) {
 					
