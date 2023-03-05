@@ -9,7 +9,7 @@ public class BrowserUI {
 
 		System.out.println(
 
-						"Commands : \n\n" + "visit <url>      : visit the url \n"
+				"Commands : \n\n" + "visit <url>      : visit the url \n"
 						+ "back <number>    : goes arg times back in history \n"
 						+ "forward <number> : goes arg times forward in history \n"
 						+ "get <number>     : goes to arg position in history \n"
@@ -24,7 +24,7 @@ public class BrowserUI {
 		Scanner input = new Scanner(System.in);
 		boolean exitStatus = false;
 		mainMenu();
-		
+
 		do {
 
 			System.out.println(currentPage + "\n");
@@ -56,7 +56,7 @@ public class BrowserUI {
 				break;
 
 			case "back":
-				if(session==null) {
+				if (session == null) {
 					System.out.println("start by visiting a url");
 					break;
 				}
@@ -78,7 +78,7 @@ public class BrowserUI {
 				break;
 
 			case "forward":
-				if(session==null) {
+				if (session == null) {
 					System.out.println("start by visiting a url");
 					break;
 				}
@@ -98,10 +98,9 @@ public class BrowserUI {
 					System.out.println(e.getLocalizedMessage());
 				}
 				break;
-				
-				
+
 			case "get":
-				if(session==null) {
+				if (session == null) {
 					System.out.println("start by visiting a url");
 					break;
 				}
@@ -110,24 +109,23 @@ public class BrowserUI {
 						System.out.println("No argument");
 						break;
 					}
-					
+
 					String arg = inputBuffer[1];
 					currentPage = session.get(Integer.parseInt(arg));
 
 				} catch (NumberFormatException e) {
-					
+
 					System.out.println("Enter valid number as argument");
-					
-				}catch (InvalidPositionException e) {
-					
+
+				} catch (InvalidPositionException e) {
+
 					System.out.println(e.getLocalizedMessage());
-					
-				}
-				catch (IndexOutOfBoundsException e) {
+
+				} catch (IndexOutOfBoundsException e) {
 					System.out.println(e.getLocalizedMessage());
 				}
 				break;
-				
+
 			case "exit":
 				exitStatus = true;
 				break;
@@ -138,7 +136,7 @@ public class BrowserUI {
 			}
 
 		} while (!exitStatus);
-		
+
 		input.close();
 	}
 }
