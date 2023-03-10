@@ -1,14 +1,19 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Stack;
 
 public class BrowserHistory {
 
-	private ArrayList<String> historyUrls = new ArrayList<>();
+	private ArrayList<String> historyArrayList = new ArrayList<>();
+	private HashSet<String> historyHashSet = new HashSet<>();
 	private int currentIndex;
 
 	public BrowserHistory(String homepageUrl) throws InvalidURLException {
 
 		verifyUrl(homepageUrl);
-		historyUrls.add(homepageUrl);
+		historyArrayList.add(homepageUrl);
+		historyHashSet.add(homepageUrl);
 		currentIndex = 0;
 
 	}
@@ -23,7 +28,8 @@ public class BrowserHistory {
 
 	public String visit(String url) throws InvalidURLException {
 		verifyUrl(url);
-		historyUrls.add(url);
+		historyArrayList.add(url);
+		historyHashSet.add(url);
 		currentIndex++;
 		return url;
 	}
@@ -32,7 +38,7 @@ public class BrowserHistory {
 
 		try {
 
-			String url = historyUrls.get(currentIndex - steps);
+			String url = historyArrayList.get(currentIndex - steps);
 			currentIndex -= steps;
 			return url;
 
@@ -46,7 +52,7 @@ public class BrowserHistory {
 
 		try {
 
-			String url = historyUrls.get(currentIndex + steps);
+			String url = historyArrayList.get(currentIndex + steps);
 			currentIndex += steps;
 			return url;
 
@@ -64,7 +70,7 @@ public class BrowserHistory {
 
 		try {
 
-			String url = historyUrls.get(position);
+			String url = historyArrayList.get(position);
 			currentIndex = position;
 			return url;
 
@@ -74,4 +80,64 @@ public class BrowserHistory {
 
 	}
 
+	public String[] sort() {
+
+		String[] historyArray = historyArrayList.toArray(new String[0]);
+
+		Arrays.sort(historyArray);
+
+		return historyArray;
+
+	}
+
+	public void deleteHistory(int index) throws InvalidPositionException, IndexOutOfBoundsException {
+
+		if (index < 0) {
+			throw new InvalidPositionException("Provide only positive values");
+		}
+
+		try {
+
+			String element = historyArrayList.remove(index);
+
+			if (!historyArrayList.contains(element)) {
+				historyHashSet.remove(element);
+			}
+
+		} catch (IndexOutOfBoundsException e) {
+
+			throw new IndexOutOfBoundsException("Invalid position");
+		}
+
+	}
+
+	public void deleteHistory(String url) throws InvalidURLException {
+		verifyUrl(url);
+		int index = historyArrayList.lastIndexOf(url);
+		if (index < 0) {
+			throw new InvalidURLException("No such url");
+		}
+
+		String element = historyArrayList.remove(index);
+		if (!historyArrayList.contains(element)) {
+			historyHashSet.remove(element);
+		}
+	}
+
+	public String[] fetchHistory() {
+		return historyHashSet.toArray(new String[0]);
+	}
+
+	public String[] searchByExtension(String extension) throws InvalidURLException {
+		verifyUrl(extension);
+		ArrayList<String> filter = new ArrayList<>();
+
+		for (String string : historyHashSet) {
+			if (string.endsWith(extension)) {
+				filter.add(string);
+			}
+		}
+
+		return filter.toArray(new String[0]);
+	}
 }
