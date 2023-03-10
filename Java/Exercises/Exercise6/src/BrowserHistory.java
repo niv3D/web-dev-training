@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Stack;
 
 public class BrowserHistory {
 
@@ -80,6 +79,8 @@ public class BrowserHistory {
 
 	}
 
+	//////////////////////
+
 	public String[] sort() {
 
 		String[] historyArray = historyArrayList.toArray(new String[0]);
@@ -129,6 +130,7 @@ public class BrowserHistory {
 	}
 
 	public String[] searchByExtension(String extension) throws InvalidURLException {
+
 		verifyUrl(extension);
 		ArrayList<String> filter = new ArrayList<>();
 
@@ -139,5 +141,30 @@ public class BrowserHistory {
 		}
 
 		return filter.toArray(new String[0]);
+	}
+
+	public int size() {
+		return historyArrayList.size();
+	}
+
+	public void updateHistory(int index, String url) throws InvalidURLException, InvalidPositionException ,IndexOutOfBoundsException {
+		if (index < 0) {
+			throw new InvalidPositionException("Provide only positive values");
+		}
+		verifyUrl(url);
+		try {
+
+			String element = historyArrayList.remove(index);
+			if (!historyArrayList.contains(element)) {
+				historyHashSet.remove(element);
+			}
+
+			historyArrayList.set(index, url);
+			historyHashSet.add(url);
+
+		} catch (IndexOutOfBoundsException e) {
+			throw new IndexOutOfBoundsException("Invalid Position");
+		}
+
 	}
 }
