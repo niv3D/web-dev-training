@@ -1,11 +1,19 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map.Entry;
 
 public class BrowserHistory {
 
 	private ArrayList<String> historyArrayList = new ArrayList<>();
 	private HashSet<String> historyHashSet = new HashSet<>();
+	
+	//private TreeSet<String> historyTreeSet = new TreeSet<>();
+	
+	private HashMap<String, ArrayList<String>> historyHashMap = new HashMap<>();
+	
 	private int currentIndex;
 
 	public BrowserHistory(String homepageUrl) throws InvalidURLException {
@@ -13,6 +21,7 @@ public class BrowserHistory {
 		verifyUrl(homepageUrl);
 		historyArrayList.add(homepageUrl);
 		historyHashSet.add(homepageUrl);
+		historyHashMap.put(getExtension(homepageUrl), new ArrayList<>(Arrays.asList(homepageUrl)));
 		currentIndex = 0;
 
 	}
@@ -24,11 +33,24 @@ public class BrowserHistory {
 			throw new InvalidURLException("Invalid Url extension");
 		}
 	}
+	
+	private String getExtension(String url) {
+		int index = url.lastIndexOf('.');
+		return url.substring(index);
+	}
 
 	public String visit(String url) throws InvalidURLException {
 		verifyUrl(url);
 		historyArrayList.add(url);
 		historyHashSet.add(url);
+		
+		String extension = getExtension(url);
+		if(historyHashMap.containsKey(extension)) {
+			historyHashMap.get(extension).add(url);
+		}
+		else {
+			historyHashMap.put(extension, new ArrayList<>(Arrays.asList(url)));
+		}
 		currentIndex++;
 		return url;
 	}
@@ -126,21 +148,23 @@ public class BrowserHistory {
 	}
 
 	public String[] fetchHistory() {
-		return historyHashSet.toArray(new String[0]);
+		return historyArrayList.toArray(new String[0]);
 	}
 
-	public String[] searchByExtension(String extension) throws InvalidURLException {
+	public List<String> searchByExtension(String extension) throws InvalidURLException {
 
 		verifyUrl(extension);
-		ArrayList<String> filter = new ArrayList<>();
-
-		for (String string : historyHashSet) {
-			if (string.endsWith(extension)) {
-				filter.add(string);
-			}
-		}
-
-		return filter.toArray(new String[0]);
+//		ArrayList<String> filter = new ArrayList<>();
+//
+//		for (String string : historyHashSet) {
+//			if (string.endsWith(extension)) {
+//				filter.add(string);
+//			}
+//		}
+//
+//		return filter.toArray(new String[0]);
+		
+		return historyHashMap.get(extension);
 	}
 
 	public int size() {
@@ -166,5 +190,14 @@ public class BrowserHistory {
 			throw new IndexOutOfBoundsException("Invalid Position");
 		}
 
+	}
+	
+	public void wordSearch(String word) {
+		
+		ArrayList<String> urlList = new ArrayList<>();
+		
+		for(Entry<String, ArrayList<String>> key : historyHashMap.entrySet()) {
+			
+		}
 	}
 }

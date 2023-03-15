@@ -80,6 +80,10 @@ public class BrowserUI {
 			case "delete":
 				delete(inputBuffer);
 				break;
+				
+			case "wordSearch":
+				wordSearch(inputBuffer);
+				break;
 
 			case "exit":
 				exitStatus = true;
@@ -93,6 +97,13 @@ public class BrowserUI {
 		} while (!exitStatus);
 
 		input.close();
+	}
+
+	private void wordSearch(String[] buffer) {
+		if (!checkSession() || !checkArgs(buffer, 2)) {
+			return;
+		}
+		
 	}
 
 	private void delete(String[] buffer) {
@@ -138,11 +149,11 @@ public class BrowserUI {
 		if (!checkSession() || !checkArgs(buffer, 2)) {
 			return;
 		}
-		String[] arg = buffer[1].split(".");
-		String ext = arg[arg.length - 1];
+		
+		String ext = buffer[1];
 
 		try {
-			System.out.println(Arrays.toString(session.searchByExtension(ext)) + "\n");
+			System.out.println(session.searchByExtension(ext) + "\n");
 
 		} catch (InvalidURLException e) {
 			System.out.println(e.getLocalizedMessage());
