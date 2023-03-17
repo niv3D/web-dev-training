@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -6,6 +7,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+
+import hack.Hacker;
 
 public class BrowserHistory {
 
@@ -69,6 +72,18 @@ public class BrowserHistory {
 		}
 		
 		return result;
+	}
+	
+	public void read() throws IOException {
+		Hacker.readHistory(historyArrayList);
+	}
+	
+	public void write() throws IOException {
+		Hacker.writeHistory(historyArrayList);
+	}
+	
+	public List<String> list(){
+		return historyArrayList;
 	}
 
 	private String getExtension(String url) {
