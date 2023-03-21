@@ -58,11 +58,11 @@ public class BrowserUI {
 			case "read":
 				read();
 				break;
-			
+
 			case "write":
 				write();
 				break;
-				
+
 			case "exit":
 				exitStatus = true;
 				break;
@@ -73,10 +73,10 @@ public class BrowserUI {
 			}
 
 		} while (!exitStatus);
-		
+
 		input.close();
 	}
-	
+
 	private void write() {
 		if (!checkSession()) {
 			return;
@@ -87,8 +87,7 @@ public class BrowserUI {
 			System.out.println(e.getLocalizedMessage());
 		}
 	}
-	
-	
+
 	private void read() {
 		if (!checkSession()) {
 			return;
@@ -112,10 +111,10 @@ public class BrowserUI {
 		if (!checkArgs(1, buffer)) {
 			return;
 		}
-		if(!checkSession()) {
+		if (session == null) {
 			session = new BrowserHistory();
 		}
-		
+
 		try {
 			session.visit(buffer[1]);
 			currentPage = buffer[1];

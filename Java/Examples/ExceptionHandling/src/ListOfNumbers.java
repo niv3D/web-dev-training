@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
 
 public class ListOfNumbers {
 
@@ -19,8 +20,12 @@ public class ListOfNumbers {
 
 	public void writeList() {
 
-		try (PrintWriter output = new PrintWriter(new FileWriter("output.txt"));) {
-
+		try (PrintWriter output = new PrintWriter(new FileWriter("abc.txt"));) {
+			
+			File file = new File("a.txt");
+			if (file.createNewFile()) {
+				System.out.println("created");
+			}
 			for (int i = 0; i < SIZE; i++) {
 				output.println(i);
 			}
