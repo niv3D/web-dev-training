@@ -8,7 +8,6 @@ import java.nio.file.Paths;
 import java.nio.file.attribute.FileAttribute;
 import java.nio.file.attribute.PosixFilePermission;
 import java.nio.file.attribute.PosixFilePermissions;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -23,9 +22,9 @@ public class Hacker {
 		
 		if (Files.notExists(filePath)) {
 			try {
-				//Set<PosixFilePermission> permissions = PosixFilePermissions.fromString("rw-rw-rw-");
-				//FileAttribute<Set<PosixFilePermission>> attributes = PosixFilePermissions.asFileAttribute(permissions);
-				Files.createFile(filePath);
+				Set<PosixFilePermission> permissions = PosixFilePermissions.fromString("rw-------");
+				FileAttribute<Set<PosixFilePermission>> attributes = PosixFilePermissions.asFileAttribute(permissions);
+				Files.createFile(filePath,attributes);
 			} catch (IOException e) {
 				throw new IOException("unable to create History.txt");
 			}

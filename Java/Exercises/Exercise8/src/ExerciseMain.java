@@ -5,7 +5,7 @@ public class ExerciseMain {
 
 		BrowserUI browserUI = new BrowserUI();
 		browserUI.run();
-
+		
 	}
 
 }
