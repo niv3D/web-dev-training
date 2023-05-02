@@ -24,8 +24,7 @@ public class DBconnection {
 			Statement stmt  = connection.createStatement();
 			
 			String sql = "SELECT sid , name "
-						+ "FROM StudentDetails "
-						+ "WHERE sid NOT IN (SELECT sid FROM Marks)";
+						+ "FROM StudentDetails ";
 			
 			ResultSet rs = stmt.executeQuery(sql);
 			
