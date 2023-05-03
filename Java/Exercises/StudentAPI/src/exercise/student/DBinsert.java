@@ -12,7 +12,7 @@ public class DBinsert {
 	private static String insertInto = "INSERT INTO StudentDetails " + "(sid,name,email,address,dob,year_of_admission) "
 			+ "VALUES (?,?,?,?,?,?)";
 
-	public static void studentDetails(Student student) throws SQLException {
+	public static int studentDetails(Student student) {
 
 		int rowAffected = 0;
 
@@ -30,12 +30,14 @@ public class DBinsert {
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			throw new SQLException("unable to insert values ! ");
+			System.out.println("unable to insert values ! ");
 		}
 
 		if (rowAffected == 1) {
 			System.out.println("student with id - " + student.sid + " added successfully");
 		}
+
+		return rowAffected;
 	}
 
 }
