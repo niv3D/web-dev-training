@@ -1,31 +1,4 @@
 {
 	"folders": {},
-	"connections": {
-		"mysql8-1875511959d-5a0a9d2fb153b589": {
-			"provider": "mysql",
-			"driver": "mysql8",
-			"name": "localhost",
-			"save-password": true,
-			"configuration": {
-				"host": "localhost",
-				"port": "3306",
-				"url": "jdbc:mysql://localhost:3306/",
-				"configurationType": "MANUAL",
-				"home": "/usr/local/mysql-8.0.32-macos13-arm64",
-				"type": "dev",
-				"auth-model": "native"
-			}
-		}
-	},
-	"connection-types": {
-		"dev": {
-			"name": "Development",
-			"color": "255,255,255",
-			"description": "Regular development database",
-			"auto-commit": true,
-			"confirm-execute": false,
-			"confirm-data-change": false,
-			"auto-close-transactions": false
-		}
-	}
+	"connections": {}
 }

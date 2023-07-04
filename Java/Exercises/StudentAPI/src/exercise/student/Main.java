@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 public class Main {
@@ -18,61 +19,77 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Student newStudent = new Student(3, "nived", "nived@gmail.com", "nived address", Date.valueOf("2000-03-11"),
-				2019);
-
-		DBinsert.studentDetails(newStudent);
-
-		Student student = DBselect.studentDetails(3);
-
-		printStudent(student);
-
-		List<Student> students = DBselect.allStudentDetails();
-
-		for (Student st : students) {
-			printStudent(st);
-		}
-
-		student.email = "mmmmmmmm";
-
-		DBupdate.studentDetails(student);
-
-		student = DBselect.studentDetails(3);
-
-		printStudent(student);
-
-		DBdelete.studentDetails(3);
+//		Student newStudent = new Student(3, "nived", "nived@gmail.com", "nived address", Date.valueOf("2000-03-11"),
+//				2019);
+//
+//		DBinsert.studentDetails(newStudent);
+//
+//		Student student = DBselect.studentDetails(3);
+//
+//		printStudent(student);
+//
+//		List<Student> students = DBselect.allStudentDetails();
+//
+//		for (Student st : students) {
+//			printStudent(st);
+//		}
+//
+//		student.email = "mmmmmmmm";
+//
+//		DBupdate.studentDetails(student);
+//
+//		student = DBselect.studentDetails(3);
+//
+//		printStudent(student);
+//
+//		DBdelete.studentDetails(3);
+//		
+//		String sqlString = "{CALL get_name(?)}";
+//		
+//		ResultSet resultSet = null;
+//		
+//		try(	
+//				Connection connection = DBconnector.getConnection();
+//				CallableStatement statement = connection.prepareCall(sqlString);
+//		) {
+//			
+//			statement.setInt(1, 2);
+//			
+//			resultSet =  statement.executeQuery();
+//			
+//			if(resultSet.next()) {
+//				System.out.println(resultSet.getString(1));
+//			}
+//			
+//		} catch (SQLException e) {
+//			System.out.println(e.getMessage());
+//		}
+//		finally {
+//			if(resultSet != null) {
+//				try {
+//					resultSet.close();
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		}
 		
-		String sqlString = "{CALL get_name(?)}";
+		String sql = "SELECT sid, address FROM StudentDetails";
 		
-		ResultSet resultSet = null;
-		
-		try(	
+		try (
 				Connection connection = DBconnector.getConnection();
-				CallableStatement statement = connection.prepareCall(sqlString);
-		) {
-			
-			statement.setInt(1, 2);
-			
-			resultSet =  statement.executeQuery();
-			
-			if(resultSet.next()) {
-				System.out.println(resultSet.getString(1));
-			}
+				Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+				ResultSet rSet = statement.executeQuery(sql);
+			){
+				
+				rSet.absolute(1);
+				rSet.updateString(2, "new address");
+				rSet.updateRow();
 			
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
-		finally {
-			if(resultSet != null) {
-				try {
-					resultSet.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-
+		
 	}
 
 }
